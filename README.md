@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+#define tam 5
+
+int main () {
+    int matriz[tam][tam], linha, coluna;
+
+    // Preenchendo a matriz com 1 em todas as posições
+    for (linha = 0; linha < tam; linha++) {
+        for (coluna = 0; coluna < tam; coluna++) {
+            matriz[linha][coluna] = 1;
+        }
+    }
+
+    // Exibindo a matriz
+    cout << "Matriz 5x5 preenchida com 1:\n";
+    for (linha = 0; linha < tam; linha++) {
+        for (coluna = 0; coluna < tam; coluna++) {
+            cout << matriz[linha][coluna] << "\t";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
