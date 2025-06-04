@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+
+#define TAM 4
+int main() {
+    float matriz[TAM][TAM], vetor[TAM];
+    int linha, coluna;
+
+    // Entrada da matriz
+    cout << "Digite os elementos de uma matriz 4x4:\n";
+    for (linha = 0; linha < TAM; linha++) {
+        for (coluna = 0; coluna < TAM; coluna++) {
+            cout << "Elemento [" << linha << "][" << coluna << "]: ";
+            cin >> matriz[linha][coluna];
+        }
+    }
+
+    // Exibe a matriz original
+    cout << "\nA matriz digitada foi:\n";
+    for (linha = 0; linha < TAM; linha++) {
+        for (coluna = 0; coluna < TAM; coluna++) {
+            cout << matriz[linha][coluna] << " ";
+        }
+        cout << endl;
+    }
+
+    // Zera o vetor
+    for (coluna = 0; coluna < TAM; coluna++) {
+        vetor[coluna] = 0;
+    }
+
+    // Soma por coluna
+    for (linha = 0; linha < TAM; linha++) {
+        for (coluna = 0; coluna < TAM; coluna++) {
+            vetor[coluna] += matriz[linha][coluna];
+        }
+    }
+
+    // Mostra o vetor de somas
+    cout << "\nVetor com soma de cada coluna:\n";
+    for (coluna = 0; coluna < TAM; coluna++) {
+        cout << vetor[coluna] << " ";
+    }
+    cout << endl;
+
+    // Multiplica cada elemento da matriz pela soma da coluna correspondente
+    for (linha = 0; linha < TAM; linha++) {
+        for (coluna = 0; coluna < TAM; coluna++) {
+            matriz[linha][coluna] *= vetor[coluna];
+        }
+    }
+
+    // Exibe a nova matriz
+    cout << "\nMatriz após multiplicação por vetor de somas:\n";
+    for (linha = 0; linha < TAM; linha++) {
+        for (coluna = 0; coluna < TAM; coluna++) {
+            cout << matriz[linha][coluna] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
